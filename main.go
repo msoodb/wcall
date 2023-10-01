@@ -1,29 +1,27 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
     "os/exec"
-	"io/ioutil"
-	"log"
+    "io/ioutil"
+    "log"
 )
 
 func main() {
-	files, err := ioutil.ReadDir(".")
-	if err != nil {
-		log.Fatal(err)
-	}
+    files, err := ioutil.ReadDir(".")
+    if err != nil {
+        log.Fatal(err)
+    }
 
-	for _, f := range files {
-		//fmt.Println(f.Name())
+    for _, f := range files {
+        //fmt.Println(f.Name())
         cmd := exec.Command("wc", "-l", f.Name())
         stdout, err := cmd.Output()
 
         if err != nil {
-            fmt.Println(err.Error())
-            return
+            //fmt.Println(err.Error())
+            continue
         }
-
-        // Print the output
         fmt.Println(string(stdout))
-	}
+    }
 }
