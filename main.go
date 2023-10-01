@@ -14,7 +14,7 @@ func main() {
 	}
 
 	for _, f := range files {
-		fmt.Println(f.Name())
+		//fmt.Println(f.Name())
         cmd := exec.Command("wc", "-l", f.Name())
         stdout, err := cmd.Output()
 
