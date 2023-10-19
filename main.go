@@ -18,12 +18,6 @@ func main() {
     }
 
     for _, f := range files {
-        /*cmd := exec.Command("wc", "-l", f.Name())
-        stdout, err := cmd.Output()
-
-        if err != nil {
-            continue
-        }*/
 	file, err := os.Open(f.Name())
 	if err != nil{
             continue
@@ -32,7 +26,7 @@ func main() {
 	if err != nil{
 	    continue
 	}
-	fmt.Println(" ", f.Name(), " ",  line)
+	fmt.Printf("%8d  %s \n", line, f.Name())
     }
 }
 
