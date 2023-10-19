@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+    help()
     files, err := ioutil.ReadDir(".")
     if err != nil {
         log.Fatal(err)
@@ -24,3 +25,9 @@ func main() {
         fmt.Println(string(stdout))
     }
 }
+
+func help() {
+	fmt.Println("Usage:")
+	fmt.Println(" ./wcall [flags]")
+}
+
